@@ -16,7 +16,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    document.querySelector('body').style.backgroundColor = "#fff";
+    document.querySelector('body').style.backgroundColor = "#F0EFEA";
     document.body.classList.remove('login-bg-img');
   }
 

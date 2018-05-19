@@ -19,15 +19,15 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent implements OnInit {
 
-  email: string;
+  username: string;
   password: string;
   matcher = new MyErrorStateMatcher();
   hide = true;
   
-  emailFormControl = new FormControl('', [
+  usernameFormControl = new FormControl('', [
     Validators.required,
   ]);
-  passowrdFormControl = new FormControl('', [
+  passwordFormControl = new FormControl('', [
     Validators.required,
   ]);
 
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (this.authenticationService.login(this.email, this.password))
+    if (this.authenticationService.login(this.username, this.password))
       this.router.navigate(['']);
     else
       alert('Wrong credentials!');

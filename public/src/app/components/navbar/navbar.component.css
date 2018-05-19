@@ -1,6 +1,6 @@
 a {
     text-decoration: none;
-    color:gray;
+    color:#fff;
 }
 .navigation-items{
     list-style: none;
@@ -12,8 +12,9 @@ a:active{
     color:red;
 }
 mat-toolbar{
-    background-color: #FFFDFF;
+    background-color: #282828;
     height: 64px;
+
 }
 mat-icon{
     color:#fff;

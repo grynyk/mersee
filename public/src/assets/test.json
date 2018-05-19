@@ -2,63 +2,63 @@
     {
         "id":1,
         "name":"Grzegorz",
-        "doneSize":3,
-        "waterMeters":[1]
+        "age":3,
+        "description":"1"
     },
     {
         "id":2,
         "name":"Jerzy",
-        "doneSize":0,
-        "waterMeters":[1]
+        "age":0,
+        "description":"1"
     },{
         "id":3,
         "name":"Mateusz",
-        "doneSize":8,
-        "waterMeters":[12]
+        "age":8,
+        "description":"12"
     },{
         "id":4,
         "name":"Mickiewicz",
-        "doneSize":12,
-        "waterMeters":[24]
+        "age":12,
+        "description":"24"
     },{
         "id":5,
         "name":"Grzegorz",
-        "doneSize":3,
-        "waterMeters":[1]
+        "age":3,
+        "description":"1"
     },{
         "id":12,
         "name":"Kalinowski",
-        "doneSize":3,
-        "waterMeters":[5]
+        "age":3,
+        "description":"5"
     },{
         "id":6,
         "name":"Korczmar",
-        "doneSize":3,
-        "waterMeters":[1]
+        "age":3,
+        "description":"1"
     },{
         "id":7,
         "name":"Szatan",
-        "doneSize":3,
-        "waterMeters":[5]
+        "age":3,
+        "description":"5"
     },{
         "id":8,
         "name":"Norbert",
-        "doneSize":2,
-        "waterMeters":[3]
+        "age":2,
+        "description":"3"
     },{
         "id":9,
         "name":"Alena",
-        "doneSize":0,
-        "waterMeters":[2]
+        "age":0,
+        "description":"2"
     },{
         "id":10,
         "name":"Slawek",
-        "doneSize":3,
-        "waterMeters":[12]
+        "age":3,
+        "description":"12"
     },{
         "id":11,
         "name":"Maidan",
-        "doneSize":0,
-        "waterMeters":[10]
+        "age":0,
+        "description":"10"
     }
 ]

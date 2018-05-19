@@ -1,3 +1,43 @@
-<p>
-  home works! {{dataSource.password}}
-</p>
+<div fxLayout="column">
+  <div>
+    <mat-card>
+      <mat-card-title>Suggested requests</mat-card-title>
+      <mat-card-content>
+          <mat-form-field class="search-data-input">
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search request">
+              <mat-hint align="start">
+                <strong>Type some keywords</strong>
+              </mat-hint>
+            </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div>
+      <mat-card>
+          <mat-card-title>List of requests</mat-card-title>
+        <mat-card-content>
+            <div class="requests-table-container">
+                <mat-table #table [dataSource]="dataSource">
+                    <ng-container matColumnDef="id">
+                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="name">
+                          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="age">
+                            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
+                          </ng-container>
+                    <ng-container matColumnDef="description">
+                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+                      </ng-container>
+                  <mat-row class="row-button" [routerLink]="[row.id]" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+              </div>
+        </mat-card-content>
+      </mat-card>
+  </div>
+</div>

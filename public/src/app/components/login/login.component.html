@@ -2,16 +2,16 @@
     <mat-card>
                 <form #f="ngForm" (ngSubmit)="login()" fxLayout="column">
                     <mat-form-field class="form-username">
-                        <input matInput type="text" name="username" [(ngModel)]="email" placeholder="E-mail" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
-                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                        <input matInput type="text" name="username" [(ngModel)]="username" placeholder="Username" [formControl]="usernameFormControl" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="usernameFormControl.hasError('required')">
                             Login is <strong>required</strong>
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field class="form-password">
                         <input matInput type="text" name="passowrd" [(ngModel)]="password" placeholder="Password" [type]="hide ? 'password' : 'text'"
-                            [formControl]="passowrdFormControl" [errorStateMatcher]="matcher">
+                            [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
                         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-                        <mat-error *ngIf="passowrdFormControl.hasError('required')">
+                        <mat-error *ngIf="passwordFormControl.hasError('required')">
                             Password is
                             <strong>required</strong>
                         </mat-error>

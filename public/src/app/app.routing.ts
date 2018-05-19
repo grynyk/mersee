@@ -5,6 +5,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { MainComponent } from './components/main/main.component';
+import { RequestsComponent } from './components/requests/requests.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RequestDetailsComponent } from './components/request-details/request-details.component';
 import { AuthGuard } from './guard/auth.guard';
 
 const appRoutes: Routes = [
@@ -13,7 +16,10 @@ const appRoutes: Routes = [
     component: MainComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: HomeComponent }
+      { path: '', component: HomeComponent },
+      { path: 'requests', component: RequestsComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path:':id',component: RequestDetailsComponent }
     ]
   },
   { path: 'registration', component: RegistrationComponent },

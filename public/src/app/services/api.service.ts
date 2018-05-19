@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ApiService {
-  private url ='http://localhost:8080/port';
+  private url ='../assets/test.json';
   
   constructor(private http: Http) {}
 

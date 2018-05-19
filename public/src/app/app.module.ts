@@ -22,6 +22,7 @@ import { MatTableModule } from '@angular/material';
 import { MatSortModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatStepperModule} from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import { AuthenticationService } from './services/authentication.service';
@@ -35,6 +36,9 @@ import { RegistrationComponent } from './components/registration/registration.co
 import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 import { ApiService } from './services/api.service';
 import { Http, HttpModule } from '@angular/http';
+import { RequestsComponent } from './components/requests/requests.component';
+import { RequestDetailsComponent } from './components/request-details/request-details.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,10 @@ import { Http, HttpModule } from '@angular/http';
     MainComponent,
     NavbarComponent,
     HomeComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    RequestsComponent,
+    RequestDetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +64,7 @@ import { Http, HttpModule } from '@angular/http';
     MatCheckboxModule,
     MatFormFieldModule,
     MatSlideToggleModule,
+    MatStepperModule,
     MatToolbarModule,
     MatMenuModule,
     MatSortModule,
