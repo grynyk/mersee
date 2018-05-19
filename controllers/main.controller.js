@@ -40,7 +40,7 @@ function createData(req, res) {
         dataID: req.body.dataID,
         description: req.body.description
     });
-    todo.save((err)=>{
+    data.save((err)=>{
         if(err){
             throw err;
         }
