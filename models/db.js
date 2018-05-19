@@ -15,7 +15,7 @@ const dbSchema = new Schema({
 
 
 //create the model
-const dbModel = mongoose.model('ToDo', dbSchema);
+const dbModel = mongoose.model('user', dbSchema);
 
 //export the model
 module.exports = dbModel;

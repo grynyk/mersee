@@ -32,7 +32,7 @@ function showSingle(req, res) {
 }
 
 function createData(req, res) {
-    const data = new ToDo({
+    const data = new users({
         topic: req.body.topic,
         type: req.body.type,
         duration: req.body.duration,
