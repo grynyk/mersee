@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
   password: '123',
   database: 'test-db'
 })
-
+//
 connection.connect(function(err) {
   if (err) throw err
   console.log('You are now connected...')
