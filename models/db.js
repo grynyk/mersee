@@ -3,19 +3,15 @@ const mongoose = require('mongoose');
 
 //create a schema
 const dbSchema = new Schema({
-    name: String,
-    slug: {
-        type: String,
-        unique: true
-    },
+    login: String,   
     description: String
 });
 
 //middlware which make sure that slug is created from name
-dbSchema.pre('save', function(next){
-    this.slug = slugify(this.name);
-    next();
-});
+// dbSchema.pre('save', function(next){
+//     this.slug = slugify(this.name);
+//     next();
+// });
 
 
 //create the model
