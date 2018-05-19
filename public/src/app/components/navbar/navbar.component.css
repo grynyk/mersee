@@ -1,0 +1,20 @@
+a {
+    text-decoration: none;
+    color:gray;
+}
+.navigation-items{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+a:hover,
+a:active{
+    color:red;
+}
+mat-toolbar{
+    background-color: #FFFDFF;
+    height: 64px;
+}
+mat-icon{
+    color:#fff;
+}

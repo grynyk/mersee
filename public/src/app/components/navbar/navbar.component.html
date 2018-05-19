@@ -1,0 +1,33 @@
+<mat-toolbar>
+    <div>
+        <button mat-icon-button fxHide fxShow.lt-md>
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a routerLink="/">LOGO</a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide fxShow.gt-sm>
+        <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+            <li>
+                <a routerLink="/profile">Ustawienia</a>
+            </li>
+            <li>
+                <a routerLink="/profile">Informacje</a>
+            </li>
+            <li>
+                <a routerLink="/login">Wyloguj</a>
+            </li>
+        </ul>
+    </div>
+    <!-- mobile flex media query -->
+    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide fxShow.lt-md>
+    <button mat-icon-button [matMenuTriggerFor]="menu" ><mat-icon>more_vert</mat-icon></button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/profile">Ustawienia</button>
+        <button mat-menu-item routerLink="/profile">Informacje</button>
+        <button mat-menu-item routerLink="/login">Wyloguj</button>
+    </mat-menu>
+    </div>
+    <!-- mobile flex media query -->
+</mat-toolbar>

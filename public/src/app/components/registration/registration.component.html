@@ -1,0 +1,61 @@
+<main>
+    <section class="signup-form">
+        <mat-card fxLayout="column" fxLayoutAlign="center center">
+            <mat-card-title style="text-align:center">Registration</mat-card-title>
+
+            <form class="register-form" (ngSubmit)="registrate()" fxLayout="column">
+                <table cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <input matInput placeholder="First name">
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field>
+                                <input matInput placeholder="Last name">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="E-mail">
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea matInput placeholder="Address">Pilotow 2</textarea>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="State">
+                </mat-form-field>
+
+                <table cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <input matInput placeholder="City">
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field>
+                                <input matInput #postalCode maxlength="6" placeholder="ZIP code" value="31-855">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+
+                <mat-form-field>
+                    <input matInput type="text" name="passowrd" placeholder="Password">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" name="confirmpassowrd" placeholder="Confirm passowrd">
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="submit-btn" type="submit">Register</button>
+            </form>
+            <mat-card-footer class="card-footer">Already have an account ?
+                <br>
+                <a routerLink='/login'>Login</a>
+            </mat-card-footer>
+        </mat-card>
+    </section>
+</main>

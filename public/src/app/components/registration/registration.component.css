@@ -1,0 +1,11 @@
+
+.signup-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-footer{
+    margin-top:5%;
+    text-align: center;
+}
