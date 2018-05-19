@@ -16,7 +16,7 @@ db.once('open', function() {
   console.log("successfull conected to database");
 });
 
-app.get('/port', mainController.getUsersFromDB);
+app.use(require('./routes'));
 
 app.listen(port, ()=>{
     console.log(`Server started at port ${port}`);
