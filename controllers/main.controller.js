@@ -27,7 +27,7 @@ function showSingle(req, res) {
             res.send(404);
             res.send('Data not found');
         }
-    res.send({data});
+    res.send(data);
   });
 }
 
@@ -40,7 +40,7 @@ function createData(req, res) {
         dataID: req.body.dataID,
         description: req.body.description
     });
-    todo.save((err)=>{
+    data.save((err)=>{
         if(err){
             throw err;
         }
