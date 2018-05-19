@@ -1,27 +1,35 @@
-var mysql = require('mysql')
+const mongoose = require('mongoose');
+    Schema = mongoose.Schema;
 
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'kolkol',
-  password: '123',
-  database: 'test-db'
-})
-//
-connection.connect(function(err) {
-  if (err) throw err
-  console.log('You are now connected...')
+//create a schema
+const dbSchema = new Schema({
+    name: String,
+    slug: {
+        type: String,
+        unique: true
+    },
+    description: String
+});
 
-  connection.query('CREATE TABLE people(id int primary key, name varchar(255), age int, address text)', function(err, result) {
-    if (err) throw err
-    connection.query('INSERT INTO people (name, age, address) VALUES (?, ?, ?)', ['Larry', '41', 'California, USA'], function(err, result) {
-      if (err) throw err
-      connection.query('SELECT * FROM people', function(err, results) {
-        if (err) throw err
-        console.log(results[0].id)
-        console.log(results[0].name)
-        console.log(results[0].age)
-        console.log(results[0].address)
-      })
-    })
-  }) 
-})
+//middlware which make sure that slug is created from name
+dbSchema.pre('save', function(next){
+    this.slug = slugify(this.name);
+    next();
+});
+
+
+//create the model
+const dbModel = mongoose.model('ToDo', dbSchema);
+
+//export the model
+module.exports = dbModel;
+
+function slugify(text) {
+
+    return text.toString().toLowerCase()
+      .replace(/\s+/g, '-')           // Replace spaces with -
+      .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+      .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+      .replace(/^-+/, '')             // Trim - from start of text
+      .replace(/-+$/, '');            // Trim - from end of text
+  }
