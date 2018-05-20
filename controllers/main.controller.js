@@ -72,7 +72,7 @@ function createUpdate(req, res) {
   console.log(slugOne);
   ToDo.findOne({ slug: slugOne }, (err, data) => {
     //updating that data
-     data1 = {
+     dataForChanges = {
       topic: req.body.topic,
       type: req.body.type,
       duration: req.body.duration,
@@ -82,18 +82,18 @@ function createUpdate(req, res) {
   };
 
   
-  data.topic = data1.topic;
-  data.type= data1.type;
-  data.duration = data1.duration;
-  data.location= data1.location;
-  data.description = data1.description;
+  data.topic = dataForChanges.topic;
+  data.type= dataForChanges.type;
+  data.duration = dataForChanges.duration;
+  data.location= dataForChanges.location;
+  data.description = dataForChanges.description;
   
 
 
 
-data.save(function (err, updatedTank) {
+data.save(function (err, data) {
   if (err) return handleError(err);
-  res.send(updatedTank);
+  res.send(data);
 });
 });
 }
