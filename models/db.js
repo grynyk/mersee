@@ -1,18 +1,24 @@
 const mongoose = require('mongoose');
     Schema = mongoose.Schema;
+    
+    
 
 //create a schema
-const dbSchema = new Schema({
-    // name: String,
-    // surname: String,
-    // sex: String,
-    // location: String,
-    // about: String,
-    // slug: {
-    //     type: String,
-    //     unique: true
-    // }
-
+const dbUsersSchema = new Schema({
+    username: String,
+    password: String,
+    email: String,
+    name: String,
+    surname: String,
+    sex: String,
+    location: String,
+    about: String,
+    myRequests: [{ topic: String, description: String }],
+    slug: {
+        type: String,
+        unique: true
+    }});
+const dbRequestSchema = new Schema({
     topic: String,
     type: String,
     description: String,
@@ -22,22 +28,29 @@ const dbSchema = new Schema({
         type: String,
         unique: true
     }
-
 });
 
 // middlware which make sure that slug is created from name
-dbSchema.pre('save', function(next){
+dbRequestSchema.pre('save', function(next){
     this.slug = slugify(this.topic);
     next();
 });
 
+dbUsersSchema.pre('save', function(next){
+    this.slug = slugify(this.topic);
+    next();
+});
 
 //create the model
-// const dbModel = mongoose.model('user', dbSchema);
-const dbModel = mongoose.model('ToDo', dbSchema);
+const dbRequestModel = mongoose.model('requests', dbRequestSchema);
+const dbUsersModel = mongoose.model('users', dbUsersSchema);
 
 //export the model
-module.exports = dbModel;
+module.exports = {
+        dbRequestModel,
+        dbUsersModel
+    };
+
 
 function slugify(text) {
 
