@@ -1,4 +1,6 @@
 const ToDo = require("../models/db");
+const path    = require("path");
+const bodyParser = require("body-parser");
 
 function getUsersFromDB(req, res) {
   ToDo.find({}, (err, users) => {
@@ -21,6 +23,8 @@ function getDataFromDB(req, res) {
   });
 }
 
+
+
 function showSingle(req, res) {
     ToDo.findOne({slug: req.params.slug},(err, data)=>{
         if(err){
@@ -29,6 +33,10 @@ function showSingle(req, res) {
         }
     res.send(data);
   });
+}
+
+function showCreate(req, res) {
+    res.sendFile(path.join(__dirname+'/form.html'));
 }
 
 function createData(req, res) {
@@ -51,5 +59,6 @@ module.exports = {
   getUsersFromDB,
   getDataFromDB,
   showSingle,
+  showCreate,
   createData
 };

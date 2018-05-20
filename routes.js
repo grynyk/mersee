@@ -15,7 +15,7 @@ router.post('/users/create', mainController.getUsersFromDB);
 router.get('/users/:slug', mainController.showSingle);
 
 router.get('/data', mainController.getDataFromDB);
-router.get('/data/create', mainController.getDataFromDB);
+router.get('/data/create', mainController.showCreate);
 router.post('/data/create', mainController.createData);
 
 router.get('/data/:slug', mainController.showSingle);
