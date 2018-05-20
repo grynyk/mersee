@@ -28,10 +28,7 @@ function getDataFromDB(req, res) {
   });
 }
 
-function showUpdate(req, res) {
 
-  res.sendFile(path.join(__dirname + '/update.html'));
-}
 
 function showUpdate(req, res) {
   console.log(slugOne);
@@ -41,7 +38,7 @@ function showUpdate(req, res) {
 
 function createUpdate(req, res) {
   console.log(slugOne);
-  ToDo.findOne({ slug: slugOne }, (err, data) => {
+  ToDo.dbRequestModel.findOne({ slug: slugOne }, (err, data) => {
     //updating that data
      dataForChanges = {
       topic: req.body.topic,
@@ -72,7 +69,7 @@ data.save(function (err, data) {
 
 
 function showSingle(req, res) {
-  ToDo.findOne({slug: req.params.slug},(err, data)=>{
+  ToDo.dbRequestModel.findOne({slug: req.params.slug},(err, data)=>{
       if(err){
           res.send(404);
           res.send('Data not found');
@@ -112,7 +109,7 @@ function showUpdate(req, res) {
 
 function createUpdate(req, res) {
   console.log(slugOne);
-  ToDo.findOne({ slug: slugOne }, (err, data) => {
+  ToDo.dbRequestModel.findOne({ slug: slugOne }, (err, data) => {
     //updating that data
      dataForChanges = {
       topic: req.body.topic,
