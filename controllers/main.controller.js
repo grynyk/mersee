@@ -1,10 +1,10 @@
 const ToDo = require("../models/db");
 const path = require("path");
 const bodyParser = require("body-parser");
-let slugOne = {}; 
+let slugOne = {};
 
 function showAuth(req, res) {
-  res.sendFile(path.join(__dirname+'/auth.html'));
+  res.sendFile(path.join(__dirname + "/auth.html"));
 }
 
 function getUsersFromDB(req, res) {
@@ -28,64 +28,56 @@ function getDataFromDB(req, res) {
   });
 }
 
-
-
 function showUpdate(req, res) {
   console.log(slugOne);
-  res.sendFile(path.join(__dirname+'/update.html'));
+  res.sendFile(path.join(__dirname + "/update.html"));
 }
-
 
 function createUpdate(req, res) {
   console.log(slugOne);
   ToDo.dbRequestModel.findOne({ slug: slugOne }, (err, data) => {
     //updating that data
-     dataForChanges = {
+    dataForChanges = {
       topic: req.body.topic,
       type: req.body.type,
       duration: req.body.duration,
       location: req.body.location,
       dataID: req.body.dataID,
       description: req.body.description
-  };
+    };
 
-  
-  data.topic = dataForChanges.topic;
-  data.type= dataForChanges.type;
-  data.duration = dataForChanges.duration;
-  data.location= dataForChanges.location;
-  data.description = dataForChanges.description;
-  
+    data.topic = dataForChanges.topic;
+    data.type = dataForChanges.type;
+    data.duration = dataForChanges.duration;
+    data.location = dataForChanges.location;
+    data.description = dataForChanges.description;
 
-
-
-data.save(function (err, data) {
-  if (err) return handleError(err);
-  res.send(data);
-});
-});
+    data.save(function(err, data) {
+      if (err) return handleError(err);
+      res.send(data);
+    });
+  });
 }
 
-
-
 function showSingle(req, res) {
-  ToDo.dbRequestModel.findOne({slug: req.params.slug},(err, data)=>{
-      if(err){
-          res.send(404);
-          res.send('Data not found');
-      }
-      slugOne= req.params.slug;
-      console.log(slugOne);
-  res.send(data);
-});
+  ToDo.dbRequestModel.findOne({ slug: req.params.slug }, (err, data) => {
+    if (err) {
+      res.send(404);
+      res.send("Data not found");
+    }
+    slugOne = req.params.slug;
+    console.log(slugOne);
+    res.send(data);
+  });
 }
 
 function showCreate(req, res) {
-  res.sendFile(path.join(__dirname + '/form.html'));
+  console.log('addd');
+  res.sendFile(path.join(__dirname + "/form.html"));
 }
 
 function createData(req, res) {
-  const data = new ToDo({
+  const data = new ToDo.dbRequestModel({
     topic: req.body.topic,
     type: req.body.type,
     duration: req.body.duration,
@@ -93,52 +85,43 @@ function createData(req, res) {
     dataID: req.body.dataID,
     description: req.body.description
   });
-  data.save((err) => {
+  data.save(err => {
     if (err) {
       throw err;
     }
   });
 }
 
-
 function showUpdate(req, res) {
   console.log(slugOne);
-  res.sendFile(path.join(__dirname+'/update.html'));
+  res.sendFile(path.join(__dirname + "/update.html"));
 }
-
 
 function createUpdate(req, res) {
   console.log(slugOne);
   ToDo.dbRequestModel.findOne({ slug: slugOne }, (err, data) => {
     //updating that data
-     dataForChanges = {
+    dataForChanges = {
       topic: req.body.topic,
       type: req.body.type,
       duration: req.body.duration,
       location: req.body.location,
       dataID: req.body.dataID,
       description: req.body.description
-  };
+    };
 
-  
-  data.topic = dataForChanges.topic;
-  data.type= dataForChanges.type;
-  data.duration = dataForChanges.duration;
-  data.location= dataForChanges.location;
-  data.description = dataForChanges.description;
-  
+    data.topic = dataForChanges.topic;
+    data.type = dataForChanges.type;
+    data.duration = dataForChanges.duration;
+    data.location = dataForChanges.location;
+    data.description = dataForChanges.description;
 
-
-
-data.save(function (err, data) {
-  if (err) return handleError(err);
-  res.send(data);
-});
-});
+    data.save(function(err, data) {
+      if (err) return handleError(err);
+      res.send(data);
+    });
+  });
 }
-
-
-
 
 module.exports = {
   showAuth,

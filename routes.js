@@ -21,5 +21,5 @@ router.get('/data/:slug', mainController.showSingle);
 router.get('/data/:slug/update', mainController.showUpdate);
 router.post('/data/our/data/update', mainController.createUpdate);
 
-router.get('/data/create', mainController.showCreate);
+router.get('/data/our/data/create', mainController.showCreate);
 router.post('/data/create', mainController.createData);
