@@ -1,6 +1,11 @@
 const ToDo = require("../models/db");
 const path    = require("path");
 const bodyParser = require("body-parser");
+let slugOne = {}; 
+
+function showAuth(req, res) {
+  res.sendFile(path.join(__dirname+'/auth.html'));
+}
 
 function getUsersFromDB(req, res) {
   ToDo.find({}, (err, users) => {
@@ -31,6 +36,8 @@ function showSingle(req, res) {
             res.send(404);
             res.send('Data not found');
         }
+        slugOne= req.params.slug;
+        console.log(slugOne);
     res.send(data);
   });
 }
@@ -55,10 +62,51 @@ function createData(req, res) {
   });
 }
 
+function showUpdate(req, res) {
+  console.log(slugOne);
+  res.sendFile(path.join(__dirname+'/update.html'));
+}
+
+
+function createUpdate(req, res) {
+  console.log(slugOne);
+  ToDo.findOne({ slug: slugOne }, (err, data) => {
+    //updating that data
+     data1 = {
+      topic: req.body.topic,
+      type: req.body.type,
+      duration: req.body.duration,
+      location: req.body.location,
+      dataID: req.body.dataID,
+      description: req.body.description
+  };
+
+  
+  data.topic = data1.topic;
+  data.type= data1.type;
+  data.duration = data1.duration;
+  data.location= data1.location;
+  data.description = data1.description;
+  
+
+
+
+data.save(function (err, updatedTank) {
+  if (err) return handleError(err);
+  res.send(updatedTank);
+});
+});
+}
+
+
+
 module.exports = {
+  showAuth,
   getUsersFromDB,
   getDataFromDB,
   showSingle,
   showCreate,
-  createData
+  createData,
+  showUpdate,
+  createUpdate
 };
