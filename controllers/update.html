@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' data: fonts.gstatic.com;"> -->
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        topic:
+        <br>
+        <input type="text" name="topic" value="topic">
+        <br> type:
+        <br>
+        <input type="text" name="type" value="NEWTYPE">
+        <br>
+        <br> Descr:
+
+        <br>
+        <input type="text" name="description" value="description">
+        <br> duration
+        <br>
+        <input type="text" name="duration" value="duration">
+        <br>
+        <br> location:
+
+        <br>
+        <input type="text" name="location" value="location">
+        <br>
+        <br>
+        <input id="Save" type="submit" value="Submit">
+    </form>
+
+</body>
+<script>
+
+    $.put = function (url, data, callback, type) {
+
+        if ($.isFunction(data)) {
+            type = type || callback,
+                callback = data,
+                data = {}
+        }
+
+        return $.ajax({
+            url: url,
+            type: 'PUT',
+            success: callback,
+            data: data,
+            contentType: type
+        });
+    }
+
+</script>
+
+</html>

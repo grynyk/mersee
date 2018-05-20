@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' data: fonts.gstatic.com;"> -->
     <title>Document</title>
 </head>
 <body>
@@ -11,7 +12,7 @@
         <input type="text" name="topic" value="topic">
         <br>
         type:<br>
-        <input type="text" name="type" value="type">
+        <input type="text" name="type" value="NEWTYPE">
         <br><br>
         
         Descr:<br>
@@ -26,6 +27,9 @@
         <br><br>
         <input type="submit" value="Submit">
       </form> 
+      <form action="/data/update">
+        <input type="submit" value="Update">
+      </form>
 </body>
 </html>
 

@@ -16,6 +16,19 @@ router.get('/users/:slug', mainController.showSingle);
 
 router.get('/data', mainController.getDataFromDB);
 router.get('/data/create', mainController.showCreate);
-router.post('/data/create', mainController.createData);
 
+
+
+
+router.post('/data/create', mainController.createData);
+/**            
+ * 
+ * 
+ */
+router.get('/data/:slug/update', mainController.showUpdate);
+router.put('/data/:slug/updateMMM', mainController.updDataInDB);
+/**            
+ * 
+ * 
+ */
 router.get('/data/:slug', mainController.showSingle);

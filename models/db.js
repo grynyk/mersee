@@ -33,7 +33,8 @@ dbSchema.pre('save', function(next){
 
 
 //create the model
-const dbModel = mongoose.model('user', dbSchema);
+// const dbModel = mongoose.model('user', dbSchema);
+const dbModel = mongoose.model('ToDo', dbSchema);
 
 //export the model
 module.exports = dbModel;
