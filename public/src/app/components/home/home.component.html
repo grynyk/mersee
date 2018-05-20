@@ -18,23 +18,19 @@
         <mat-card-content>
             <div class="requests-table-container">
                 <mat-table #table [dataSource]="dataSource">
-                    <ng-container matColumnDef="id">
-                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+                    <ng-container matColumnDef="topic">
+                        <mat-header-cell *matHeaderCellDef> Topic: </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.topic}} </mat-cell>
                       </ng-container>
-                      <ng-container matColumnDef="name">
-                          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-                          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                      <ng-container matColumnDef="type">
+                          <mat-header-cell *matHeaderCellDef> Type: </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
                         </ng-container>
-                        <ng-container matColumnDef="age">
-                            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
+                        <ng-container matColumnDef="location">
+                            <mat-header-cell *matHeaderCellDef> Location: </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.location}} </mat-cell>
                           </ng-container>
-                    <ng-container matColumnDef="description">
-                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
-                      </ng-container>
-                  <mat-row class="row-button" [routerLink]="[row.id]" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                  <mat-row class="row-button" [routerLink]="[row.slug]" *matRowDef="let row; columns: displayedColumns;"></mat-row>
                 </mat-table>
               </div>
         </mat-card-content>

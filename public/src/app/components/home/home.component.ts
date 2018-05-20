@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  displayedColumns = ['id','name','age','description'];
+  displayedColumns = ['topic','type','location'];
 
   dataSource = new MatTableDataSource();
 

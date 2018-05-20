@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-requests',
   templateUrl: './requests.component.html',
@@ -7,34 +8,30 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class RequestsComponent implements OnInit {
   isLinear = true;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
-  fourthFormGroup: FormGroup;
+  FormGroup: FormGroup;
   selectedValue: string;
-
-  requestTypes = [
+  successMessage:string = "";
+  errorMessage:string = "";
+  request = {topic:'',location:'',type:'',description:'',duration:''};
+  types = [
     {value: 'charity-0', viewValue: 'Charity'},
     {value: 'physical-1', viewValue: 'Physical'},
     {value: 'mental-2', viewValue: 'Mental'},
     {value: 'other-3', viewValue: 'Other'}
   ];
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder,private apiService:ApiService) { }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+    this.FormGroup = this._formBuilder.group({
+      Ctrl: ['', Validators.required]
     });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
-    });
-  
-  this.fourthFormGroup = this._formBuilder.group({
-    fourthCtrl: ['', Validators.required]
-  });
+}
+createRequest(){
+  this.apiService.createRequest(this.request)
+  .subscribe(request =>{
+    this.successMessage = "Request success";
+    console.log("Created");
+  })
 }
 }

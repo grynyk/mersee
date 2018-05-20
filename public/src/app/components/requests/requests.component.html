@@ -6,88 +6,31 @@
 </div>
 <div fxFlex="70">
   <mat-card>
-              <mat-card-title style="text-align:center">Submit request</mat-card-title>
-              <mat-horizontal-stepper [linear]="isLinear" #stepper>
-                <mat-step [stepControl]="firstFormGroup">
-                  <form [formGroup]="firstFormGroup">
-                    <ng-template matStepLabel>Name</ng-template>
-                    <div fxLayout="row">
-                              <mat-form-field>
-                                  <input matInput placeholder="First name" formControlName="firstCtrl" required>
-                              </mat-form-field>
-                              <mat-form-field>
-                                  <input matInput placeholder="Last name" formControlName="firstCtrl" required>
-                              </mat-form-field>
-                          </div>
-                    <div>
-                      <button mat-raised-button color="primary" matStepperNext>Next</button>
-                    </div>
-                  </form>
-                </mat-step>
-                <mat-step [stepControl]="secondFormGroup">
-                  <form [formGroup]="secondFormGroup">
-                    <ng-template matStepLabel>Address</ng-template>
-                    <mat-form-field>
-                      <input  matInput placeholder="Address" formControlName="secondCtrl" required>
-                    </mat-form-field>
-                    <div>
-                      <button mat-raised-button color="warn" matStepperPrevious>Back</button>
-                      <button mat-raised-button color="primary" matStepperNext>Next</button>
-                    </div>
-                  </form>
-                </mat-step>
-
-                <mat-step [stepControl]="thirdFormGroup">
-                  <form [formGroup]="thirdFormGroup">
-                    <ng-template matStepLabel>Request message</ng-template>
-                    <form>
-                        <mat-form-field>
-                            <mat-select placeholder="Choose request type" [(ngModel)]="selectedValue" name="requestTypes">
-                              <mat-option *ngFor="let key of requestTypes" [value]="key.value">
-                                {{key.viewValue}}
-                              </mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                      
-                        <p> Selected value: {{selectedValue}} </p>
-                      </form>
-                    <mat-form-field>
-                      <textarea  matInput placeholder="Request message" formControlName="thirdCtrl" required></textarea>
-                    </mat-form-field>
-                    <div>
-                      <button mat-raised-button color="warn" matStepperPrevious>Back</button>
-                      <button mat-raised-button color="primary" matStepperNext>Next</button>
-                    </div>
-                  </form>
-                </mat-step>
-
-                <mat-step [stepControl]="fourthFormGroup">
-                    <form [formGroup]="fourthFormGroup">
-                      <ng-template matStepLabel>Contact details</ng-template>
+    <div *ngIf="request">
+                  <form (ngSubmit)="createRequest()" fxLayout="column">
+                                  <mat-form-field>
+                                      <input matInput placeholder="Topic" name="topic" [(ngModel)]="request.topic">
+                                  </mat-form-field>
+                                  <mat-form-field>
+                                      <input matInput placeholder="Location" name="location" [(ngModel)]="request.location">
+                                  </mat-form-field>
+                                  <!-- <mat-form-field>
+                                      <mat-select placeholder="Choose Type of request">
+                                        <mat-option *ngFor="let type of types" [value]="type.value" name="type" [(ngModel)]="request.type">
+                                          {{ type.viewValue }}
+                                        </mat-option>
+                                      </mat-select>
+                                    </mat-form-field> -->
                       <mat-form-field>
-                        <input  matInput placeholder="Tel.number" formControlName="fourthCtrl" required>
+                          <textarea matInput placeholder="Description" name="description" [(ngModel)]="request.description" >Beer conversation</textarea>
                       </mat-form-field>
+      
                       <mat-form-field>
-                          <input  matInput placeholder="Email" formControlName="fourthCtrl" required>
-                        </mat-form-field>
-                      <div>
-                        <button mat-raised-button color="warn" matStepperPrevious>Back</button>
-                        <button mat-raised-button color="primary" matStepperNext>Next</button>
-                      </div>
-                    </form>
-                  </mat-step>
-
-                <mat-step>
-                  <ng-template matStepLabel>Done</ng-template>
-                  You are now done.
-                  <div>
-                    <button mat-raised-button color="warn" matStepperPrevious>Back</button>
-                    <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
-                  </div>
-                </mat-step>
-              </mat-horizontal-stepper>
-
-
+                          <input matInput placeholder="Duration" name="duration" [(ngModel)]="request.duration">
+                      </mat-form-field>
+                      <button type="submit">Create request</button>
+                  </form>
+                </div>
   </mat-card>
 </div>
 </div>

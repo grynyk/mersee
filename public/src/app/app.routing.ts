@@ -19,7 +19,7 @@ const appRoutes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'requests', component: RequestsComponent },
       { path: 'profile', component: ProfileComponent },
-      { path:':id',component: RequestDetailsComponent }
+      { path:':slug',component: RequestDetailsComponent }
     ]
   },
   { path: 'registration', component: RegistrationComponent },
