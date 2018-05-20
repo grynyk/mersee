@@ -13,7 +13,7 @@ const dbUsersSchema = new Schema({
     sex: String,
     location: String,
     about: String,
-    myRequests: [{ topic: String, description: String }],
+    myRequests: String ,
     slug: {
         type: String,
         unique: true
