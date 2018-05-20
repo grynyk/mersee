@@ -23,4 +23,3 @@ router.post('/data/our/data/update', mainController.createUpdate);
 
 router.get('/data/create', mainController.showCreate);
 router.post('/data/create', mainController.createData);
-
