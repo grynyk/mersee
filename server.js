@@ -1,13 +1,15 @@
 require('dotenv').config();
-
 const mainController = require('./controllers/main.controller');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
 
-const port = process.env.port || 8080;
+// configure the app to use bodyParser()
 
+app.use(bodyParser.json());
+
+const port = process.env.port || 8080;
 
 const passport = require('passport');
 app.use(passport.initialize());

@@ -1,0 +1,61 @@
+<div class="main" fxLayout="row">
+  <div fxFlex> 
+      <div class="left-column" fxLayout="column">
+        <div>
+    <mat-card>
+        <mat-card-title><mat-icon>rss_feed</mat-icon>News feed</mat-card-title>
+      </mat-card>
+    </div>
+    <div>
+        <mat-card>
+            <mat-card-title><mat-icon>photo_library</mat-icon>Photo gallery</mat-card-title>
+          </mat-card>
+        </div>
+    </div>
+    </div>
+<div fxFlex="70">
+  <div class="content" fxLayout="column">
+  <div>
+      <mat-card class="request-table-card">
+<div class="request-table-card-header">
+          <div fxLayout="row">
+              <div fxFlex fxLayoutAlign="start none">
+                  <mat-icon>list</mat-icon><mat-card-title>Requests</mat-card-title>
+              </div>
+              <div fxFlex fxLayoutAlign="end none">
+                  <button class="add-request-btn" mat-raised-button (click)="addRequestBtn()"><mat-icon>add</mat-icon>Add request</button>
+              </div>
+            </div>
+            
+            <mat-form-field  class="search-request-input">
+                <input matInput appearance="fill" (keyup)="applyFilter($event.target.value)" placeholder="Search request">
+                <mat-hint align="start">
+                  <strong>Type some keywords</strong>
+                </mat-hint>
+              </mat-form-field>
+            </div>
+        <mat-card-content>
+            <div class="requests-table-container">
+                <mat-table #table [dataSource]="dataSource">
+                    <ng-container matColumnDef="topic">
+                        <mat-header-cell *matHeaderCellDef> Topic: </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.topic}} </mat-cell>
+                      </ng-container>
+                      <ng-container matColumnDef="type">
+                          <mat-header-cell *matHeaderCellDef> Type: </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="location">
+                            <mat-header-cell *matHeaderCellDef> Location: </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.location}} </mat-cell>
+                          </ng-container>
+                          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row class="row-button" [routerLink]="[row.slug]" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+              </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+</div>

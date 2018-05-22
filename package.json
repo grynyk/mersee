@@ -19,6 +19,7 @@
   "homepage": "https://github.com/grynyk/mersee#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "mongo-express": "^0.47.0",

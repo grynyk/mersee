@@ -1,0 +1,27 @@
+.main{
+    margin-top:15px;
+}
+mat-card{
+    margin:8px;
+    max-height:100%;
+}
+.left-column{
+    margin-left:30px;
+}
+.content{
+    margin-right:30px;
+}
+mat-card{
+    margin:10px;
+    min-height:100%;
+}
+mat-form-field{
+    width: 100%;
+}
+.submit-btn{
+    background: #349251;
+    color:#fff;
+}
+.submit-btn:hover{
+    background: #2e8149f6;
+}

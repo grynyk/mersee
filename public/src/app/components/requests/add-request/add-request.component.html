@@ -1,0 +1,63 @@
+<div class="main" fxLayout="row">
+  <div fxFlex>
+    <div class="left-column">
+      <mat-card>
+        hi user !
+      </mat-card>
+    </div>
+  </div>
+  <div fxFlex="70">
+    <div class="content">
+      <mat-card>
+        <mat-card-title>Add Request</mat-card-title>
+        <form (ngSubmit)="submitRequest()" #addRequestForm="ngForm">
+        <div fxLayout="row" fxLayoutGap="20px">
+          <div fxFlex>
+              <mat-form-field hintLabel="write a caption for your request">
+                  <input type="text" matInput placeholder="Topic" [(ngModel)]="request.topic" name="topic" required>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-select placeholder="Choose type" [(ngModel)]="request.type" name="type" required type="text">
+                    <mat-option *ngFor="let type of types" [value]="type.value">
+                      {{type.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-hint>Choose from dropdown menu</mat-hint>
+                </mat-form-field>
+                <div fxLayout="row" fxLayoutGap="20px">
+                    <div fxFlex>
+                      <mat-form-field hintLabel="value in hours">
+                        <input matInput type="number" placeholder="Duration" [(ngModel)]="request.duration" name="duration">
+                      </mat-form-field>
+                    </div>
+                    <div fxFlex>
+                      <mat-form-field hintLabel="type your place">
+                        <input matInput type="text" placeholder="Location" [(ngModel)]="request.location" name="location" required>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+        </div>
+        <div fxFlex="60">
+            <mat-form-field>
+              <textarea matInput rows="8" placeholder="Description: write few words about your problem" [(ngModel)]="request.description" type="text" name="description" required></textarea>
+            </mat-form-field>
+          </div>
+
+      </div>
+
+      <div fxLayout="row">
+          <div fxFlex fxLayoutAlign="end none">
+              <button class="submit-btn" type="submit" [disabled]="!addRequestForm.form.valid" mat-raised-button><mat-icon>add</mat-icon>SUBMIT</button>
+          </div>
+        </div>
+      </form>
+
+
+
+      </mat-card>
+
+    </div>
+  </div>
+</div>
