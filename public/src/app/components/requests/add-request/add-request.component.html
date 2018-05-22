@@ -41,7 +41,7 @@
         </div>
         <div fxFlex="60">
             <mat-form-field>
-              <textarea matInput rows="8" placeholder="Description: type few words about your problem" [(ngModel)]="request.description" type="text" name="description" required></textarea>
+              <textarea matInput rows="8" placeholder="Description: write few words about your problem" [(ngModel)]="request.description" type="text" name="description" required></textarea>
             </mat-form-field>
           </div>
 
@@ -49,7 +49,7 @@
 
       <div fxLayout="row">
           <div fxFlex fxLayoutAlign="end none">
-              <button class="submit-btn" type="submit" (click)="location.href='/'" [disabled]="!addRequestForm.form.valid" mat-raised-button><mat-icon>add</mat-icon>SUBMIT</button>
+              <button class="submit-btn" type="submit" [disabled]="!addRequestForm.form.valid" mat-raised-button><mat-icon>add</mat-icon>SUBMIT</button>
           </div>
         </div>
       </form>

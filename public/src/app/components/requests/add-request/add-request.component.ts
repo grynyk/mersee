@@ -27,14 +27,12 @@ request = {};
 
 submitRequest() {
   this.apiService.addRequest(this.request)
-    .subscribe(
-      res => {
+    .subscribe(res => {
         console.log(res);
-      },
-      err => {
+      },err => {
         console.log("Error occured");
     });
-    this.router.navigateByUrl('/')
+    this.router.navigateByUrl('/');
   }
 
 

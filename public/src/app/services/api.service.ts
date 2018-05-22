@@ -26,8 +26,8 @@ addRequest(request) {
                    .map((res:Response) => res.json()) 
                    .catch((error:any) => Observable.throw('Server error')); 
 }   
-editRequest(request,slug) {
-  return this.httpClient.post(`${this.url}/data/${slug}/update`, request)
+updateRequest(request) {
+  return this.httpClient.put(`${this.url}/data/our/data/update`, request)
                    .map((res:Response) => res.json()) 
                    .catch((error:any) => Observable.throw('Server error')); 
 }   

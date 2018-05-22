@@ -18,8 +18,8 @@ router.get('/users/:slug', mainController.showSingle);
 
 router.get('/data', mainController.getDataFromDB);
 router.get('/data/:slug', mainController.showSingle);
-router.get('/data/:slug/update', mainController.showUpdate);
-router.post('/data/our/data/update', mainController.createUpdate);
+// router.get('/data/:slug/update', mainController.showUpdate);
+router.put('/data/our/data/update', mainController.createUpdate);
 
 router.get('/data/our/data/create', mainController.showCreate);
 router.post('/data/create', mainController.createData);

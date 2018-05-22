@@ -1,4 +1,5 @@
-<mat-card *ngIf="dataSource">
+<div class="main" *ngIf="dataSource">
+<mat-card>
   <mat-card-header>
     <mat-card-title>{{dataSource.topic}}</mat-card-title>
     <mat-card-subtitle>{{dataSource.type}} , {{dataSource.duration}} , {{dataSource.location}}</mat-card-subtitle>
@@ -9,43 +10,56 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-      <button mat-raised-button (click)="loadComponent()" color="primary">Edit</button>
-      <button mat-raised-button color="warn">Delete</button>
+    <button mat-raised-button (click)="loadComponent()" color="primary">Edit</button>
+    <button mat-raised-button color="warn">Delete</button>
   </mat-card-actions>
 </mat-card>
 
-<mat-card *ngIf="component">
-        
-    <h1>Edit New Book</h1>
-    <div class="row">
-      <div class="col-md-6">
-        <form (ngSubmit)="addRequest()" #bookForm="ngForm">
-          <div class="form-group">
-            <label for="name">ISBN</label>
-            <input type="text" class="form-control" [(ngModel)]="request.topic" name="topic" required>
+<mat-card *ngIf="componentLoaded">
+    <mat-card-title>Edit Request</mat-card-title>
+
+    <form (ngSubmit)="updateRequest()" #addRequestForm="ngForm">
+      <div fxLayout="row" fxLayoutGap="20px">
+      <div fxFlex fxLayout="column">
+        <div>
+          <mat-form-field hintLabel="write a caption for your request">
+              <input type="text" matInput placeholder="Topic" [(ngModel)]="dataSource.topic" name="topic">
+            </mat-form-field>
           </div>
-          <div class="form-group">
-            <label for="name">Title</label>
-            <input type="text" class="form-control" [(ngModel)]="request.type" name="type" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Author</label>
-            <input type="text" class="form-control" [(ngModel)]="request.duration" name="duration" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Published Year</label>
-            <input type="number" class="form-control" [(ngModel)]="request.location" name="location" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Publisher</label>
-            <input type="text" class="form-control" [(ngModel)]="request.description" name="description" required>
-          </div>
-          <div class="form-group">
-            <button type="submit" [disabled]="!bookForm.form.valid">Save</button>
-          </div>
-        </form>
+            <mat-form-field>
+                <mat-select placeholder="Choose type" [(ngModel)]="dataSource.type" name="type" required type="text">
+                  <mat-option *ngFor="let type of types" [value]="type.value">
+                    {{type.viewValue}}
+                  </mat-option>
+                </mat-select>
+                <mat-hint>Choose from dropdown menu</mat-hint>
+              </mat-form-field>
+              <div fxLayout="row" fxLayoutGap="20px">
+                  <div fxFlex>
+                    <mat-form-field hintLabel="value in hours">
+                      <input matInput type="number" placeholder="Duration" [(ngModel)]="dataSource.duration" name="duration">
+                    </mat-form-field>
+                  </div>
+                  <div fxFlex>
+                    <mat-form-field hintLabel="type your place">
+                      <input matInput type="text" placeholder="Location" [(ngModel)]="dataSource.location" name="location">
+                    </mat-form-field>
+                  </div>
+                </div>
+                </div>
+                <div fxFlex="50" fxLayout="column">
+        <mat-form-field>
+          <textarea matInput rows="10" placeholder="Description: write few words about your problem" [(ngModel)]="dataSource.description" type="text" name="description"></textarea>
+        </mat-form-field>
       </div>
     </div>
+    <div fxLayout="row">
+        <div fxFlex fxLayoutAlign="end none">
+          <button class="submit-btn" type="submit" [disabled]="!addRequestForm.form.valid" mat-raised-button><mat-icon>add</mat-icon>SUBMIT</button>
+        </div></div>
+        </form>
 
 
-</mat-card>
+
+  </mat-card>
+</div>

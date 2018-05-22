@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {ApiService} from '../../../services/api.service';
 import { Observable } from 'rxjs/Rx'
 @Component({
@@ -8,9 +8,16 @@ import { Observable } from 'rxjs/Rx'
   styleUrls: ['./request-details.component.css']
 })
 export class RequestDetailsComponent implements OnInit {
-  dataSource =[];
-  component=false;
-  constructor(private route:ActivatedRoute,private apiService:ApiService) { 
+  dataSource :any;
+  selectedValue: string;
+  types = [
+    {value: 'mental', viewValue: 'Mental help'},
+    {value: 'physical', viewValue: 'Physical help'},
+    {value: 'other', viewValue: 'Other help'}
+  ];
+request :any;
+componentLoaded=false;
+  constructor(private route:ActivatedRoute,private router:Router,private apiService:ApiService) { 
     
   }
 
@@ -24,9 +31,15 @@ export class RequestDetailsComponent implements OnInit {
   }
 
   loadComponent(){
-    this.component = true;
+    this.componentLoaded = true;
   }
-
+  updateRequest() {
+    this.apiService.updateRequest(this.dataSource)
+      .subscribe(res => {
+          console.log(res);
+        });
+      this.router.navigateByUrl('/');
+    }
   
 
 }
