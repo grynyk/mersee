@@ -5,9 +5,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { MainComponent } from './components/main/main.component';
-import { RequestsComponent } from './components/requests/requests.component';
+import { AddRequestComponent } from './components/requests/add-request/add-request.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { RequestDetailsComponent } from './components/request-details/request-details.component';
+import { RequestDetailsComponent } from './components/requests/request-details/request-details.component';
 import { AuthGuard } from './guard/auth.guard';
 
 const appRoutes: Routes = [
@@ -17,7 +17,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', component: HomeComponent },
-      { path: 'requests', component: RequestsComponent },
+      { path: 'add-request', component: AddRequestComponent },
       { path: 'profile', component: ProfileComponent },
       { path:':slug',component: RequestDetailsComponent }
     ]

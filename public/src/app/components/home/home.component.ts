@@ -28,4 +28,7 @@ export class HomeComponent implements OnInit {
       filterValue = filterValue.trim();
       this.dataSource.filter = filterValue;
     }
+    addRequestBtn(){
+      this.router.navigateByUrl('/add-request');
+    }
 }

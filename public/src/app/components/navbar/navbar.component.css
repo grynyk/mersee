@@ -9,12 +9,10 @@ a {
 }
 a:hover,
 a:active{
-    color:red;
+    color: rgba(255, 255, 255, 0.747);
 }
 mat-toolbar{
-    background-color: #282828;
-    height: 64px;
-
+    background-color: #349251;
 }
 mat-icon{
     color:#fff;

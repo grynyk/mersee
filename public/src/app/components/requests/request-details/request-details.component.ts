@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {ApiService} from '../../services/api.service';
+import {ApiService} from '../../../services/api.service';
 import { Observable } from 'rxjs/Rx'
 @Component({
   selector: 'app-request-details',
@@ -9,6 +9,7 @@ import { Observable } from 'rxjs/Rx'
 })
 export class RequestDetailsComponent implements OnInit {
   dataSource =[];
+  component=false;
   constructor(private route:ActivatedRoute,private apiService:ApiService) { 
     
   }
@@ -21,5 +22,11 @@ export class RequestDetailsComponent implements OnInit {
       console.log(this.dataSource);
     });
   }
+
+  loadComponent(){
+    this.component = true;
+  }
+
+  
 
 }

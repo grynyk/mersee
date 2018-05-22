@@ -5,7 +5,7 @@ const mainController = require('./controllers/main.controller');
 
 module.exports = router;
 
-router.get('/', mainController.showAuth);
+// router.get('/', mainController.showAuth);
 
 router.get('/success', (req, res) => res.send("Welcome "+req.query.username+"!!"));
 router.get('/error', (req, res) => res.send("error logging in"));

@@ -36,8 +36,9 @@ import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 import { ApiService } from './services/api.service';
 import { Http, HttpModule } from '@angular/http';
 import { RequestsComponent } from './components/requests/requests.component';
-import { RequestDetailsComponent } from './components/request-details/request-details.component';
+import { RequestDetailsComponent } from './components/requests/request-details/request-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AddRequestComponent } from './components/requests/add-request/add-request.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     RegistrationComponent,
     RequestsComponent,
     RequestDetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddRequestComponent
   ],
   imports: [
     BrowserModule,

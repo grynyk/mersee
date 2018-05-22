@@ -1,0 +1,46 @@
+<div class="body" fxLayout="row">
+    <div fxFlex>
+      <mat-card>
+       hi user !
+      </mat-card>
+    </div>
+    <div fxFlex="70">
+      <mat-card>
+        
+              <h1>Add New Book</h1>
+              <div class="row">
+                <div class="col-md-6">
+                  <form (ngSubmit)="addRequest()" #bookForm="ngForm">
+                    <div class="form-group">
+                      <label for="name">ISBN</label>
+                      <input type="text" class="form-control" [(ngModel)]="request.topic" name="topic" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Title</label>
+                      <input type="text" class="form-control" [(ngModel)]="request.type" name="type" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Author</label>
+                      <input type="text" class="form-control" [(ngModel)]="request.duration" name="duration" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Published Year</label>
+                      <input type="number" class="form-control" [(ngModel)]="request.location" name="location" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Publisher</label>
+                      <input type="text" class="form-control" [(ngModel)]="request.description" name="description" required>
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" [disabled]="!bookForm.form.valid">Save</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+
+      </mat-card>
+    </div>
+
+    </div>
+    
