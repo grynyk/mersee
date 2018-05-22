@@ -26,8 +26,9 @@
                   <button class="add-request-btn" mat-raised-button (click)="addRequestBtn()"><mat-icon>add</mat-icon>Add request</button>
               </div>
             </div>
-            <mat-form-field class="search-request-input">
-                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search request">
+            
+            <mat-form-field  class="search-request-input">
+                <input matInput appearance="fill" (keyup)="applyFilter($event.target.value)" placeholder="Search request">
                 <mat-hint align="start">
                   <strong>Type some keywords</strong>
                 </mat-hint>

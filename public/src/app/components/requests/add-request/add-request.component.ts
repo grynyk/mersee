@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ApiService } from '../../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-add-request',
   templateUrl: './add-request.component.html',
@@ -11,7 +12,11 @@ import { HttpClient } from '@angular/common/http';
 export class AddRequestComponent implements OnInit {
 
   selectedValue: string;
-
+  types = [
+    {value: 'mental', viewValue: 'Mental help'},
+    {value: 'physical', viewValue: 'Physical help'},
+    {value: 'other', viewValue: 'Other help'}
+  ];
 request = {};
 
   constructor(private apiService:ApiService,private router:Router,private http:HttpClient) { }
@@ -19,7 +24,8 @@ request = {};
   ngOnInit() {
    
 }
-addRequest() {
+
+submitRequest() {
   this.apiService.addRequest(this.request)
     .subscribe(
       res => {
@@ -27,11 +33,9 @@ addRequest() {
       },
       err => {
         console.log("Error occured");
-        es => {
-          
-      }
-    }
-    );
+    });
+    this.router.navigateByUrl('/')
   }
+
 
 }

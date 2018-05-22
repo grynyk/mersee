@@ -1,46 +1,63 @@
-<div class="body" fxLayout="row">
-    <div fxFlex>
+<div class="main" fxLayout="row">
+  <div fxFlex>
+    <div class="left-column">
       <mat-card>
-       hi user !
+        hi user !
       </mat-card>
     </div>
-    <div fxFlex="70">
+  </div>
+  <div fxFlex="70">
+    <div class="content">
       <mat-card>
-        
-              <h1>Add New Book</h1>
-              <div class="row">
-                <div class="col-md-6">
-                  <form (ngSubmit)="addRequest()" #bookForm="ngForm">
-                    <div class="form-group">
-                      <label for="name">ISBN</label>
-                      <input type="text" class="form-control" [(ngModel)]="request.topic" name="topic" required>
+        <mat-card-title>Add Request</mat-card-title>
+        <form (ngSubmit)="submitRequest()" #addRequestForm="ngForm">
+        <div fxLayout="row" fxLayoutGap="20px">
+          <div fxFlex>
+              <mat-form-field hintLabel="write a caption for your request">
+                  <input type="text" matInput placeholder="Topic" [(ngModel)]="request.topic" name="topic" required>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-select placeholder="Choose type" [(ngModel)]="request.type" name="type" required type="text">
+                    <mat-option *ngFor="let type of types" [value]="type.value">
+                      {{type.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-hint>Choose from dropdown menu</mat-hint>
+                </mat-form-field>
+                <div fxLayout="row" fxLayoutGap="20px">
+                    <div fxFlex>
+                      <mat-form-field hintLabel="value in hours">
+                        <input matInput type="number" placeholder="Duration" [(ngModel)]="request.duration" name="duration">
+                      </mat-form-field>
                     </div>
-                    <div class="form-group">
-                      <label for="name">Title</label>
-                      <input type="text" class="form-control" [(ngModel)]="request.type" name="type" required>
+                    <div fxFlex>
+                      <mat-form-field hintLabel="type your place">
+                        <input matInput type="text" placeholder="Location" [(ngModel)]="request.location" name="location" required>
+                      </mat-form-field>
                     </div>
-                    <div class="form-group">
-                      <label for="name">Author</label>
-                      <input type="text" class="form-control" [(ngModel)]="request.duration" name="duration" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="name">Published Year</label>
-                      <input type="number" class="form-control" [(ngModel)]="request.location" name="location" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="name">Publisher</label>
-                      <input type="text" class="form-control" [(ngModel)]="request.description" name="description" required>
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" [disabled]="!bookForm.form.valid">Save</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
+                  </div>
+
+        </div>
+        <div fxFlex="60">
+            <mat-form-field>
+              <textarea matInput rows="8" placeholder="Description: type few words about your problem" [(ngModel)]="request.description" type="text" name="description" required></textarea>
+            </mat-form-field>
+          </div>
+
+      </div>
+
+      <div fxLayout="row">
+          <div fxFlex fxLayoutAlign="end none">
+              <button class="submit-btn" type="submit" (click)="location.href='/'" [disabled]="!addRequestForm.form.valid" mat-raised-button><mat-icon>add</mat-icon>SUBMIT</button>
+          </div>
+        </div>
+      </form>
+
 
 
       </mat-card>
-    </div>
 
     </div>
-    
+  </div>
+</div>

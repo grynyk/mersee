@@ -34,12 +34,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 import { ApiService } from './services/api.service';
+import {MatDialogModule} from '@angular/material/dialog';
 import { Http, HttpModule } from '@angular/http';
 import { RequestsComponent } from './components/requests/requests.component';
 import { RequestDetailsComponent } from './components/requests/request-details/request-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddRequestComponent } from './components/requests/add-request/add-request.component';
-
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +67,7 @@ import { AddRequestComponent } from './components/requests/add-request/add-reque
     MatCheckboxModule,
     MatFormFieldModule,
     MatSlideToggleModule,
+    MatProgressBarModule,
     MatStepperModule,
     MatToolbarModule,
     MatMenuModule,
@@ -74,6 +77,8 @@ import { AddRequestComponent } from './components/requests/add-request/add-reque
     MatSidenavModule,
     MatListModule,
     MatInputModule,
+    MatDialogModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     MatCardModule,
     MatTabsModule,
