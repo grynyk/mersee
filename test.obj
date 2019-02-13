@@ -1,11 +1,9 @@
-# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
-# File Created: 13.02.2019 21:45:06
+#  Viewpoint Datalabs International, Inc.  Copyright 1996
 
-mtllib test.mtl
 
-#
-# object 9f68623752e64b62993c776d220f8cf8
-#
+mtllib ./vp.mtl
+
+g
 
 v  324.5557 0.0000 43.8468
 v  325.3321 12.0100 43.6737
